@@ -11,13 +11,16 @@
                     <form class="form-horizontal" method="post">
                         {{ csrf_field() }}
                         <div class="form-group col-md-4">
-                            <input class="form-control" type="text" placeholder="Item Name" required>
+                            <input name="name" class="form-control" type="text" placeholder="Item Name" value="{{ $data->name }}"
+                                   required>
                         </div>
                         <div class="form-group col-md-4">
-                            <input class="form-control" type="number" placeholder="Item Stock" required>
+                            <input name="stock" class="form-control" type="number" placeholder="Item Stock"
+                                   value="{{ $data->stock }}" required>
                         </div>
                         <div class="form-group col-md-4">
-                            <input class="form-control" type="number" placeholder="Item Price" required>
+                            <input name="price" class="form-control" type="number" placeholder="Item Price"
+                                   value="{{ $data->price }}" required>
                         </div>
                         <div class="form-group">
                             <button class="btn btn-primary" type="submit">Submit</button>

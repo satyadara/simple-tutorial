@@ -8,6 +8,7 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
+                    <a href="{{ route('item.create') }}"><button class="btn btn-success">CREATE</button></a>
                     <table class="table table-bordered">
                         <thead>
                         <th>ID</th>
@@ -18,17 +19,19 @@
                         </thead>
                         <tbody>
                         @foreach($data as $d)
-                        <tr><a href="#">{{ $d->id }}</a></tr>
-                        <tr>{{ $d->name }}</tr>
-                        <tr>{{ $d->stock }}</tr>
-                        <tr>{{ $d->price }}</tr>
                         <tr>
-                            <a href="#">
-                                <button class="btn btn-warning">Edit</button>
-                            </a>
-                            <a href="#">
-                                <button class="btn btn-danger">Delete</button>
-                            </a>
+                            <td>{{ $d->id }}</td>
+                            <td><a href="{{ route('item.show',$d->id ) }}">{{ $d->name }}</a></td>
+                            <td>{{ $d->stock }}</td>
+                            <td>{{ $d->price }}</td>
+                            <td>
+                                <a href="{{ route('item.edit',$d->id ) }}">
+                                    <button class="btn btn-warning">Edit</button>
+                                </a>
+                                <a href="{{ route('item.delete',$d->id ) }}">
+                                    <button class="btn btn-danger">Delete</button>
+                                </a>
+                            </td>
                         </tr>
                         @endforeach
                         </tbody>
